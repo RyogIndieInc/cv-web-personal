@@ -1,55 +1,66 @@
+/* Archivo: reset.css */
+/* Descripción: Definir estilos base para neutralizar inconsistencias del navegador y establecer un punto de partida consistente para el diseño. */
+
 /* 1. Reseteo general */
+/* Aplicar las siguientes reglas a todos los elementos, incluyendo los pseudo-elementos ::before y ::after */
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* Elimina los márgenes predeterminados de todos los elementos */
+    padding: 0; /* Elimina el padding predeterminado de todos los elementos */
+    box-sizing: border-box; /* Establece el modelo de caja 'border-box'. Esto asegura que el padding y el borde estén incluidos en el ancho y alto total de un elemento, lo que facilita el diseño. */
 }
 
 /* 2. Configuración base */
+/* Establece configuraciones globales para el documento HTML */
 html {
-    font-size: 16px;
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%; /* Evita zoom raro en iOS */
+    font-size: 16px; /* Define el tamaño de fuente base para el documento. Usar 16px como base es una buena práctica para la accesibilidad. */
+    scroll-behavior: smooth; /* Habilita el desplazamiento suave (smooth scrolling) cuando se navega a enlaces internos (por ejemplo, con anclas #). */
+    -webkit-text-size-adjust: 100%; /* Propiedad específica de Webkit para evitar que los dispositivos iOS ajusten el tamaño de la fuente automáticamente al cambiar la orientación del dispositivo, lo que evita un "zoom" no deseado. */
 }
 
 /* 3. Cuerpo */
+/* Estilos para el elemento body, que se aplican a todo el contenido de la página */
 body {
-    font-family: 'Cormorant', sans-serif;
-    background-color: #fff;
-    color: #000;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased; /* Mejora legibilidad */
+    font-family: 'Cormorant', sans-serif; /* Define la familia de fuentes predeterminada. Si la primera fuente ('Cormorant') no está disponible, se usará 'sans-serif' como alternativa genérica. */
+    background-color: #fff; /* Establece el color de fondo de la página */
+    color: #000; /* Establece el color de texto predeterminado */
+    line-height: 1.5; /* Define la altura de la línea del texto. 1.5 es un valor ideal para una buena legibilidad. */
+    -webkit-font-smoothing: antialiased; /* Propiedad de Webkit que suaviza la fuente para mejorar la legibilidad en pantallas de alta resolución. */
 }
 
 /* 4. Elementos multimedia */
+/* Estilos para que las imágenes y otros elementos multimedia se comporten de manera
+   predecible y sean responsive */
 img,
 picture,
 video,
 canvas,
 svg {
-    display: block;
-    max-width: 100%;
-    height: auto;
+    display: block; /* Convierte los elementos multimedia en elementos de bloque para evitar espacios en blanco adicionales y facilitar su maquetación. */
+    max-width: 100%; /* Asegura que no excedan el ancho de su contenedor, lo que los hace responsive. */
+    height: auto; /* Permite que la altura se ajuste automáticamente para mantener la relación de aspecto. */
 }
 
 /* 5. Formularios */
+/* Estilos para que los elementos de formulario hereden las propiedades de fuente del body */
 input,
 button,
 textarea,
 select {
-    font: inherit;
+    font: inherit; /* Asegura que los campos de formulario usen la misma fuente definida en el body, lo que crea un diseño más uniforme. */
 }
 
 /* 6. Enlaces */
+/* Estilos para los hipervínculos */
 a {
-    color: inherit;
-    text-decoration: none;
+    color: inherit; /* Los enlaces heredan el color de su contenedor padre, en lugar de usar el color azul predeterminado del navegador. */
+    text-decoration: none; /* Elimina la línea de subrayado predeterminada en los enlaces. */
 }
 
 /* 7. Listas */
+/* Estilos para las listas */
 ul,
 ol {
-    list-style: none;
+    list-style: none; /* Elimina los marcadores de lista predeterminados (puntos, números, etc.). */
 }

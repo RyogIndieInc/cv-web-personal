@@ -1,0 +1,536 @@
+@import url(reset.css);
+
+/* Definición de variables de CSS */
+:root {
+    /* Colores de Roronoa Zoro */
+    --color-principal-verde: #003300;
+    --color-acento-lima: #bfff00;
+    --color-texto-claro: #f0f0f0;
+    --color-texto-oscuro: #1a1a1a;
+    --color-fondo-claro: #f8f8f8;
+
+    /* Familias de fuentes */
+    --fuente-titulos: 'Playfair Display', serif;
+    --fuente-cuerpo: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--color-fondo-claro);
+    color: var(--color-texto-oscuro);
+    font-family: var(--fuente-cuerpo);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuente-titulos);
+}
+
+/* Estilo del header y navbar */
+.header-navbar {
+    position: fixed; /* Posiciona el header de forma fija en la parte superior */
+    width: 100%; /* Para que se extienda por todo el ancho de la ventana*/
+    top: 0; /* Lo coloca en la parte superior */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    background-color: var(--color-principal-verde); /* Color de fondo del header */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra del header */
+    transition: background-color 0.3s ease;
+}
+
+/* El contenedor interno del header */
+.header-navbar .container {
+    display: flex; /* Para alinear el logo, la navegación y el botón */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* Espacio entre los elementos */
+    padding: 1rem 2rem; /* Espaciado interno */
+}
+
+/* Estilos del logo */
+.header-navbar .logo img {
+    height: 100px; /* Ajusta la altura del logo */
+}
+
+/* Estilos de la navegación principal (navbar) */
+#navbar ul {
+    display: flex; /* Para alinear los elementos del menú horizontalmente */
+    gap: 2rem; /* Espacio entre los elementos del menú */
+}
+
+#navbar a {
+    color: var(--color-texto-claro); /* Color del texto de los enlaces */
+    font-family: var(--fuente-cuerpo); /* Fuente del texto de los enlaces */
+    font-weight: 500; /* Peso del texto de los enlaces */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+/* Efecto al pasar el cursor por los enlaces */
+#navbar a:hover {
+    color: var(--color-acento-lima); /* Cambia el color del texto a verde lima */
+}
+
+/* Estilos del botón de contacto */
+.boton-contacto-navbar {
+    border: 2px solid var(--color-acento-lima);
+    background-color: transparent; /* Color de fondo transparente */
+    color: var(--color-acento-lima); /* Color del texto del botón */
+    padding: 0.5rem 1rem; /* Espaciado interno del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+    font-weight: 700;
+}
+
+/* Efecto al pasar el cursor por el botón */
+.boton-contacto-navbar:hover {
+    background-color: var(--color-acento-lima); /* Cambia el color de fondo a verde lima */
+    color: var(--color-principal-verde); /* Cambia el color del texto a verde oscuro */
+}
+
+/* ESTILOS DE LA BARRA LATERAL */
+.barra-lateral {
+    width: 300px; /* Ancho de la barra lateral */
+    height: 100vh; /* Altura completa de la ventana */
+    position: fixed; /* Posiciona la barra lateral de forma fija */
+    left: 0; /* Alinea la barra lateral al lado izquierdo */
+    top: 0; /* Alinea la barra lateral a la parte superior */
+    background-color: var(--color-principal-verde); /* Color de fondo de la barra lateral */
+    color: var(--color-texto-claro); /* Color del texto en la barra lateral */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4); /* Sombra de la barra lateral */
+    overflow-y: auto; /* Permite el desplazamiento vertical si el contenido es más alto que la ventana */
+    display: flex; /* Para alinear los elementos dentro de la barra lateral */
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    gap: 1.5rem; /* Espacio entre los elementos */
+}
+
+.barra-lateral-intro {
+    font-style: italic; /* Estilo de fuente en cursiva */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Línea inferior sutil */
+    padding-bottom: 1rem; /* Espaciado inferior */
+}
+
+.barra-lateral h3 {
+    font-family: var(--fuente-titulos); /* Fuente para los títulos */
+    font-size: 1.5rem; /* Tamaño de fuente para los títulos */
+    color: var(--color-acento-lima); /* Color para los títulos */
+    margin-bottom: 0.5rem; /* Espacio debajo de los títulos */
+}
+
+.barra-lateral ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    margin: 0.5rem 0; /* Espaciado superior e inferior */
+}
+
+.barra-lateral li {
+    display: flex; /* Para alinear los elementos dentro de la lista */
+    align-items: center; /* Centra verticalmente los elementos */
+    gap: 0.5rem; /* Espacio entre los elementos de la lista */
+    margin-bottom: 0.25rem; /* Espacio debajo de los elementos de la lista */
+}
+
+.barra-lateral .fa-solid,
+.barra-lateral .ri-fill,
+.barra-lateral .fa-brands {
+    color: var(--color-acento-lima); /* Color de los iconos */
+    font-size: 1.1rem; /* Tamaño de fuente para los iconos */
+    min-width: 20px; /* Ancho mínimo para los iconos */
+}
+
+.disponibilidad {
+    color: var(--color-acento-lima); /* Color del texto de disponibilidad */
+    font-weight: bold; /* Peso del texto de disponibilidad */
+    text-align: center; /* Alinea el texto al centro */
+    margin-top: 1rem; /* Espacio superior */
+    font-size: 1.1rem; /* Tamaño de fuente para la disponibilidad */
+}
+
+details {
+    margin-bottom: 1rem; /* Espacio debajo de los detalles */
+}
+
+summary {
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil al pasar el cursor */
+    padding: 0.5rem; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    user-select: none; /* Evita la selección de texto */
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
+    display: flex; /* Para alinear los elementos dentro del resumen */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* Espacio entre los elementos */
+}
+
+summary::before {
+    content: '▶';
+    display: inline-block; /* Para que el pseudo-elemento se comporte como un bloque */
+    margin-right: 0.5rem; /* Espacio a la derecha del triángulo */
+    transition: transform 0.2s ease; /* Transición suave para la rotación */
+}
+
+details[open] summary::before {
+    transform: rotate(90deg); /* Rota el triángulo al abrir el detalle */
+}
+
+summary:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo más oscuro al pasar el cursor */
+}
+
+/* ESTILOS PARA LA ETIQUETA <main> */
+.contenido-principal {
+    margin-left: 300px; /* Deja espacio para la barra lateral */
+    padding: 3rem 2rem; /* Espaciado interno */
+    flex-grow: 1; /* Permite que el contenido principal ocupe el espacio restante */
+    min-height: 100vh; /* Asegura que el contenido principal ocupe al menos la altura de la ventana */
+}
+
+/* ESTILOS PARA LA SECCIÓN DE INICIO */
+
+.seccion-inicio {
+    padding: 4rem 0; /* Espaciado superior e inferior */
+}
+
+.seccion-inicio .contenedor-inicio {
+    display: flex; /* Para alinear el contenido horizontalmente */
+    align-items: center; /* Centra horizontalmente los elementos */
+    justify-content: center; /* Centra verticalmente los elementos */
+    flex-direction: row; /* Alinea los elementos en fila */
+    gap: 1.5rem; /* Espacio entre los elementos */
+}
+
+.seccion-inicio h1 {
+    font-size: 3rem; /* Tamaño de fuente para el título */
+    color: var(--color-acento-lima); /* Color del título */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra del texto */
+}
+
+.seccion-inicio img {
+    width: 200px; /* Ancho de la imagen */
+    height: 200px; /* Altura de la imagen */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    border: 5px solid var(--color-acento-lima); /* Borde de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área del borde */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra de la imagen */
+}
+
+/* ESTILOS PARA LA SECCIÓN DE FORMACIÓN */
+#formacion {
+    padding-top: 2.5rem; /* Espaciado superior */
+}
+
+#formacion h2 {
+    font-size: 2.5rem; /* Tamaño de fuente para el título */
+    color: var(--color-acento-lima); /* Color del título */
+    border-bottom: 2px solid var(--color-principal-verde); /* Borde inferior */
+    padding-bottom: 0.5rem; /* Espaciado inferior */
+    margin-bottom: 2rem; /* Espacio debajo del contenedor */
+}
+
+#formacion .lista-formacion li {
+    display: flex; /* Para alinear los elementos dentro de la lista */
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    padding: 1rem 0; /* Espaciado superior e inferior */
+    border-bottom: 1px solid var(--color-texto-oscuro);
+}
+
+#formacion .lista-formacion li:last-child {
+    border-bottom: none; /* Elimina el borde inferior del último elemento */
+}
+
+#formacion .lista-formacion p {
+    font-weight: 500; /* Negrita */
+}
+
+#formacion .lista-formacion time {
+    font-style: italic; /* Cursiva */
+    color: #555; /* Color gris para las fechas */
+}
+
+/* ESTILOS PARA LA SECCIÓN DE EXPERIENCIA (TIMELINE) */
+#experiencia {
+    padding-top: 4rem; /* Espaciado superior */
+}
+
+#experiencia h2 {
+    font-size: 2.5rem; /* Tamaño de fuente para el título */
+    color: var(--color-acento-lima); /* Color del título */
+    border-bottom: 2px solid var(--color-principal-verde); /* Borde inferior */
+    padding-bottom: 0.5rem; /* Espaciado inferior */
+    margin-bottom: 2rem; /* Espacio debajo del contenedor */
+}
+
+.timeline {
+    position: relative; /* Para posicionar los elementos dentro del timeline */
+    margin: 0 1rem; /* Margen horizontal */
+}
+
+.timeline::before {
+    content: ''; /* Crea una línea vertical en el timeline */
+    position: absolute; /* Posiciona la línea de forma absoluta */
+    left: 50%; /* Centra la línea en el medio */
+    transform: translateX(-50%); /* Ajusta la posición horizontal */
+    width: 2px; /* Ancho de la línea */
+    height: 100%; /* Altura completa del contenedor */
+    background-color: var(--color-principal-verde); /* Color de la línea */
+}
+
+.timeline-item {
+    display: flex; /* Para alinear los elementos dentro del item */
+    align-items: center; /* Centra verticalmente los elementos */
+    margin-bottom: 2rem; /* Espacio debajo del item */
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row-reverse; /* Alterna la dirección de los items impares */
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: 2rem; /* Espacio a la izquierda para los items pares */
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-right: 2rem; /* Espacio a la derecha para los items impares */
+}
+
+.timeline-item::before {
+    content: ''; /* Crea un círculo en el timeline */
+    width: 15px; /* Ancho del círculo */
+    height: 15px; /* Altura del círculo */
+    background-color: var(--color-acento-lima); /* Color del círculo */
+    border-radius: 50%; /* Hace que el círculo sea redondo */
+    z-index: 1; /* Asegura que el círculo esté por encima de la línea */
+    border: 3px solid var(--color-principal-verde); /* Borde del círculo */
+}
+
+.timeline-content {
+    padding: 1.5rem; /* Espaciado interno */
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    max-width: 45%; /* Ancho máximo del contenido */
+    display: flex; /* Para alinear los elementos dentro del contenido */
+    flex-direction: column; /* Alinea los elementos verticalmente */
+}
+
+.timeline-content h3 {
+    font-size: 1.25rem; /* Tamaño de fuente para los títulos de los items */
+    color: var(--color-principal-verde); /* Color del título */
+    margin-bottom: 0.5rem; /* Espacio debajo del título */
+}
+
+.timeline-content h3 span {
+    font-style: italic; /* Cursiva para el nombre de la empresa */
+    font-size: 1rem; /* Tamaño de fuente para el nombre de la empresa */
+    color: #555; /* Color gris para el nombre de la empresa */
+    font-weight: 400; /* Peso de fuente normal */
+}
+
+.timeline-content time {
+    font-style: italic; /* Cursiva para las fechas */
+    color: #777; /* Color gris para las fechas */
+    margin-bottom: 1rem; /* Espacio debajo de las fechas */
+}
+
+.timeline-content p {
+    margin-bottom: 1rem; /* Espacio debajo de los párrafos */
+}
+
+.enlaces-proyectos {
+    display: flex; /* Para alinear los enlaces horizontalmente */
+    gap: 1rem; /* Espacio entre los enlaces */
+}
+
+.enlaces-proyectos a {
+    color: var(--color-acento-lima); /* Color de los enlaces */
+    font-weight: bold; /* Negrita */
+    text-decoration: underline; /* Subrayado */
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+.enlaces-proyectos a:hover {
+    color: var(--color-principal-verde); /* Cambia el color al pasar el cursor */
+}
+
+/* ESTILOS PARA LA SECCIÓN DE CERTIFICACIONES */
+#certificaciones {
+    padding-top: 4rem; /* Espaciado superior */
+}
+
+#certificaciones h2 {
+    font-size: 2.5rem; /* Tamaño de fuente para el título */
+    color: var(--color-acento-lima); /* Color del título */
+    border-bottom: 2px solid var(--color-principal-verde); /* Borde inferior */
+    padding-bottom: 0.5rem; /* Espaciado inferior */
+    margin-bottom: 2rem; /* Espacio debajo del contenedor */
+}
+
+.certificaciones-grid {
+    display: grid; /* Para alinear las certificaciones */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Tres columnas con espacio entre ellas */
+    gap: 2rem; /* Espacio entre las certificaciones */
+}
+
+.grupo-certificaciones {
+    padding: 1rem; /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Color de fondo de las certificaciones */
+}
+
+.grupo-certificaciones h4 {
+    font-size: 1.5rem; /* Tamaño de fuente para los títulos de las certificaciones */
+    color: var(--color-principal-verde); /* Color del título */
+    margin-bottom: 1.5rem; /* Espacio debajo del título */
+    font-family: var(--fuente-titulos); /* Fuente para los títulos */
+    text-align: center; /* Alinea el título al centro */
+}
+
+.timeline-item {
+    border-left: 2px solid var(--color-acento-lima); /* Borde izquierdo */
+    padding-left: 1rem; /* Espaciado izquierdo */
+    margin-bottom: 1.5rem; /* Espacio debajo del item */
+    position: relative; /* Para posicionar el contenido */
+    display: flex; /* Para alinear los elementos dentro del item */
+    flex-direction: column; /* Alinea los elementos verticalmente */
+}
+
+.timeline-item::before {
+    content: ''; /* Crea un círculo en el timeline */
+    width: 10px; /* Ancho del círculo */
+    height: 10px; /* Altura del círculo */
+    background-color: var(--color-acento-lima); /* Color del círculo */
+    border-radius: 50%; /* Hace que el círculo sea redondo */
+    position: absolute; /* Posiciona el círculo de forma absoluta */
+    left: -6px; /* Alinea el círculo al borde izquierdo */
+    top: 5px; /* Alinea el círculo al centro verticalmente */
+}
+
+.timeline-item h3 {
+    font-size: 1.1rem; /* Tamaño de fuente para los títulos de los items */
+    color: var(--color-principal-verde); /* Color del título */
+    margin-bottom: 0.25rem; /* Espacio debajo del título */
+}
+
+.timeline-item time,
+.timeline-item p {
+    font-style: italic; /* Cursiva para las fechas */
+    color: #555; /* Color gris para las fechas */
+    display: block; /* Hace que el time ocupe toda la línea */
+    margin-bottom: 0.5rem; /* Espacio debajo de las fechas */
+}
+
+.timeline-item a {
+    color: var(--color-acento-lima); /* Color de los enlaces */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: 500; /* Negrita */
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+.timeline-item a:hover {
+    color: var(--color-principal-verde); /* Cambia el color al pasar el cursor */
+    text-decoration: underline; /* Subrayado al pasar el cursor */
+}
+
+/* ESTILOS PARA EL FOOTER */
+.footer {
+    background-color: var(--color-principal-verde); /* Color de fondo del footer */
+    padding: 3rem 0; /* Espaciado superior e inferior */
+    color: var(--color-texto-claro); /* Color del texto del footer */
+    text-align: center; /* Centra el texto */
+}
+
+.footer h2 {
+    font-size: 2rem; /* Tamaño de fuente para el título */
+    color: var(--color-texto-claro); /* Color del texto del título */
+    border-bottom: 2px solid var(--color-acento-lima); /* Borde inferior */
+    padding-bottom: 0.5rem; /* Espaciado inferior */
+    margin-bottom: 2rem; /* Espacio debajo del contenedor */
+    display: inline-block; /* Para que el borde se ajuste al texto */
+}
+
+.informacion-contacto {
+    display: flex; /* Para alinear los elementos horizontalmente */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    gap: 1.5rem; /* Espacio entre los elementos */
+    margin-bottom: 1.5rem; /* Espacio debajo del contenedor */
+}
+
+.informacion-contacto ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding */
+    display: flex; /* Para alinear los elementos horizontalmente */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    gap: 1.5rem; /* Espacio entre los elementos */
+}
+
+.informacion-contacto a {
+    color: var(--color-acento-lima); /* Color de los enlaces */
+    font-size: 1.5rem; /* Tamaño de fuente para los enlaces */
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+.informacion-contacto a:hover {
+    color: var(--color-texto-claro); /* Cambia el color al pasar el cursor */
+}
+
+.informacion-extra p,
+.informacion-legal p {
+    font-size: 0.9rem; /* Tamaño de fuente para el texto */
+    color: rgba(255, 255, 255, 0.8); /* Color del texto */
+    margin-bottom: 0.5rem; /* Espacio debajo de los párrafos */
+}
+
+/* MEDIA QUERIES (ADAPTACIÓN A PANTALLAS MÁS PEQUEÑAS) */
+
+/* Pantallas medianas (tablets y laptops pequeñas) */
+@media (max-width: 1024px) {
+    main {
+        margin-left: 250px; /* Reduce el margen izquierdo para la barra lateral */
+    }
+    .barra-lateral {
+        width: 250px; /* Reduce el ancho de la barra lateral */
+    }
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    /* La barra lateral se convierte en estática y se muestra encima del contenido principal */
+    .barra-lateral {
+        position: static; /* Cambia la posición a estática */
+        width: 100%; /* Ancho completo */
+        height: auto; /* Altura automática */
+        box-shadow: none; /* Elimina la sombra */
+    }
+
+    /* Ocultamos el menú de navegación completo y el botón de contacto */
+    #navbar,
+    .boton-contacto-navbar {
+        display: none; /* Oculta el menú de navegación y el botón de contacto */
+    }
+
+    /* Hacemos que el header tenga la barra lateral y ocupe todo el ancho */
+    .header-navbar {
+        position: static; /* Cambia la posición a estática */
+    }
+
+    /* Mostramos el botón de hamburguesa para el menú móvil */
+    .menu-boton-movil {
+        display: block;
+    }
+
+    /* El main ocupa todo el ancho de la pantalla */
+    main {
+        margin-left: 0; /* Elimina el margen izquierdo */
+    }
+
+    /* El contenedor del header se adapta a los nuevos elementos */
+    .header-navbar .container {
+        justify-content: space-between; /* Espacio entre los elementos */
+        align-items: center; /* Centra verticalmente los elementos */
+    }
+
+    .certificaciones {
+        /* En móviles, se eliminan los márgenes negativos para un diseño más limpio. */
+        margin: 0;
+    }
+    .grupo-certificaciones {
+        /* Cada grupo ocupa el 100% del ancho en móviles. */
+        flex: 1 1 100%;
+    }
+}
